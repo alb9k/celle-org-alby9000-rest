@@ -1,5 +1,8 @@
 package org.alb9k.celle.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.alb9k.celle.dto.CellaRequest;
 import org.alb9k.celle.dto.CellaResponse;
 import org.alb9k.celle.dto.EventoCellaRequest;
@@ -12,12 +15,8 @@ import org.alb9k.celle.service.CellaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/celle")

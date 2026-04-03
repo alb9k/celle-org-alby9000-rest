@@ -1,10 +1,10 @@
 package org.alb9k.celle.dto;
 
-import java.util.List;
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.alb9k.celle.model.Punto;
+
+import java.util.List;
 
 public class FiltroCelleRequest {
 

@@ -4,7 +4,6 @@ import org.alb9k.celle.dto.CellaRequest;
 import org.alb9k.celle.dto.CellaResponse;
 import org.alb9k.celle.dto.EventoCellaRequest;
 import org.alb9k.celle.model.*;
-import org.alb9k.celle.model.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -1,0 +1,399 @@
+{
+  "info": {
+    "_postman_id": "09a91d73-7dd8-4570-9bca-e359a9a5380c",
+    "name": "Celle",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9065964"
+  },
+  "item": [
+    {
+      "name": "forza",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"cella1\",\n    \"latitudine\": 45.4616873,\n    \"longitudine\": 9.0756298,\n    \"tipoParametro\": \"POTENZA\",\n    \"raggioKm\": 0,\n    \"potenza\": 1.25\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/forza?latitudine=45.47&longitudine=9.09",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "forza"
+          ],
+          "query": [
+            {
+              "key": "latitudine",
+              "value": "45.47"
+            },
+            {
+              "key": "longitudine",
+              "value": "9.09"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "raggio",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"cella2\",\n    \"latitudine\": 45.4732446,\n    \"longitudine\": 9.0961433,\n    \"tipoParametro\": \"RAGGIO\",\n    \"raggioKm\": 10000.0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/forza?latitudine=45.47&longitudine=9.09",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "forza"
+          ],
+          "query": [
+            {
+              "key": "latitudine",
+              "value": "45.47"
+            },
+            {
+              "key": "longitudine",
+              "value": "9.09"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "filtra",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"celle\": [\n        {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        },\n        {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    ],\n    \"punto\": {\n        \"latitudine\": 45.47,\n        \"longitudine\": 9.09\n    },\n    \"soglia\": 10.0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/filtra",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "filtra"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "frequenza",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"timestamp\": \"2025-03-30T10:15:30\",\n    \"tipoEvento\": \"CONNECTED\",\n    \"cella\": {\n      \"nome\": \"cella1\",\n      \"latitudine\": 45.4616873,\n      \"longitudine\": 9.0756298,\n      \"tipoParametro\": \"POTENZA\",\n      \"potenza\": 2.25\n    }\n  },\n  {\n    \"timestamp\": \"2025-03-30T10:16:30\",\n    \"tipoEvento\": \"CONNECTED\",\n    \"cella\": {\n      \"nome\": \"cella2\",\n      \"latitudine\": 45.4616873,\n      \"longitudine\": 9.0756298,\n      \"tipoParametro\": \"POTENZA\",\n      \"potenza\": 1.25\n    }\n  },\n  {\n    \"timestamp\": \"2025-03-30T10:17:30\",\n    \"tipoEvento\": \"DISCONNECTED\",\n    \"cella\": {\n      \"nome\": \"cella3\",\n      \"latitudine\": 45.4732446,\n      \"longitudine\": 9.0961433,\n      \"tipoParametro\": \"RAGGIO\",\n      \"raggioKm\": 10.0\n    }\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "frequenze diverse",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:15:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:16:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:17:30\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "frequenze più celle con frequenze diverse",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:15:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:16:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:17:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:18:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:19:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:20:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "frequenze più celle con frequenze diverse 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:00:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:01:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:02:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:03:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:04:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:05:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:06:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:07:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:08:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:09:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:10:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4700000,\n            \"longitudine\": 9.0900000,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 2.0\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:11:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella4\",\n            \"latitudine\": 45.4800000,\n            \"longitudine\": 9.1000000,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 5.0\n        }\n    }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "lista vuota",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "una sola cella",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"timestamp\": \"2025-03-30T10:00:00\",\n    \"tipoEvento\": \"CONNECTED\",\n    \"cella\": {\n      \"nome\": \"cella1\",\n      \"latitudine\": 45.46,\n      \"longitudine\": 9.07,\n      \"tipoParametro\": \"POTENZA\",\n      \"potenza\": 1.25\n    }\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "connected-disconnected",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"timestamp\": \"2025-03-30T10:00:00\",\n    \"tipoEvento\": \"CONNECTED\",\n    \"cella\": {\n      \"nome\": \"cella1\",\n      \"latitudine\": 45.46,\n      \"longitudine\": 9.07,\n      \"tipoParametro\": \"POTENZA\",\n      \"potenza\": 1.25\n    }\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "connected-disconnected + celle",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:00:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:01:00\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:02:00\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "connected-disconnected + celle disconneted",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:00:00\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:01:00\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:02:00\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/celle/eventi/frequenza",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "celle",
+            "eventi",
+            "frequenza"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
