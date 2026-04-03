@@ -13,7 +13,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"nome\": \"cella1\",\n    \"latitudine\": 45.4616873,\n    \"longitudine\": 9.0756298,\n    \"tipoParametro\": \"POTENZA\",\n    \"raggioKm\": 0,\n    \"potenza\": 1.25\n}",
+          "raw": "{\n    \"nome\": \"cella1\",\n    \"latitudine\": 45.4616873,\n    \"longitudine\": 9.0756298,\n    \"tipoParametro\": \"POTENZA\",\n    \"potenza\": 1.25\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -154,7 +154,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:15:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:16:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:17:30\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    }\n]",
+          "raw": "[\n    {\n        \"timestamp\": \"2025-03-30T10:15:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella3\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 1.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:16:30\",\n        \"tipoEvento\": \"CONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella1\",\n            \"latitudine\": 45.4616873,\n            \"longitudine\": 9.0756298,\n            \"tipoParametro\": \"POTENZA\",\n            \"potenza\": 11.25\n        }\n    },\n    {\n        \"timestamp\": \"2025-03-30T10:17:30\",\n        \"tipoEvento\": \"DISCONNECTED\",\n        \"cella\": {\n            \"nome\": \"cella2\",\n            \"latitudine\": 45.4732446,\n            \"longitudine\": 9.0961433,\n            \"tipoParametro\": \"RAGGIO\",\n            \"raggioKm\": 10.0\n        }\n    }\n]",
           "options": {
             "raw": {
               "language": "json"
