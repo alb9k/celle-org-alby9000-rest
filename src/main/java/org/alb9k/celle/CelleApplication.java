@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Entry point dell'applicazione Celle.
  *
  * @author Alberto Levy
+ * @version 1.0
  */
 @SpringBootApplication
 public class CelleApplication {
