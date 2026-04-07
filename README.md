@@ -6,7 +6,9 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-Applicazione disponibile su `http://localhost:8080`.
+Applicazione disponibile su: `http://localhost:8080`.
+
+Open API definizioni: `http://localhost:8080/swagger-ui/index.html`.
 
 ## Package
 `org.alby9000.celle`
