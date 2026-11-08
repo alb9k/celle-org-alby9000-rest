@@ -1,2 +1,6 @@
-# Project exclude paths
-/target/
+target/
+.idea/
+*.iml
+.DS_Store
+# Private Italian documentation
+/README_IT.md
