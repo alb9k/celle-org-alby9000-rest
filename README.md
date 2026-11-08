@@ -1,24 +1,28 @@
-# Progetto Celle - org.alby9000.celle
+# Cell Project — org.alby9000.celle
 
-## Avvio
+## Getting Started
+
 ```bash
 mvn clean install
 mvn spring-boot:run
 ```
 
-Applicazione disponibile su: `http://localhost:8080`.
+Application available at: `http://localhost:8080`.
 
-Open API definizioni: `http://localhost:8080/swagger-ui/index.html`.
+OpenAPI documentation (Swagger UI): `http://localhost:8080/swagger-ui/index.html`.
 
 ## Package
+
 `org.alby9000.celle`
 
-## API REST
+## REST API
 
-### 1. Calcolo forza di una cella in un punto
+### 1. Calculate Cell Signal Strength at a Given Location
+
 `POST /api/celle/forza?latitudine=45.47&longitudine=9.09`
 
-Body esempio cella a potenza:
+Example request body for a power-based cell:
+
 ```json
 {
   "nome": "cella1",
@@ -29,7 +33,8 @@ Body esempio cella a potenza:
 }
 ```
 
-### 2. Filtro celle per soglia forza
+### 2. Filter Cells by Signal Strength Threshold
+
 `POST /api/celle/filtra`
 
 ```json
@@ -58,7 +63,8 @@ Body esempio cella a potenza:
 }
 ```
 
-### 3. Celle ordinate per frequenza eventi
+### 3. Sort Cells by Event Frequency
+
 `POST /api/celle/eventi/frequenza`
 
 ```json
@@ -97,62 +103,59 @@ Body esempio cella a potenza:
     }
   }
 ]
-
 ```
 
-## 4. Note implementative
-- Formula cella a raggio: forza lineare da 100% al centro a 0% al bordo del raggio.
-- Formula cella a potenza: `forza = 100 / (potenza ^ distanzaKm)`.
-- Vincolo consigliato: `potenza > 1`.
+## 4. Implementation Notes
 
+- **Radius-based cell formula:** Signal strength decreases linearly from 100% at the center to 0% at the boundary of the coverage radius.
+- **Power-based cell formula:** `strength = 100 / (power ^ distanceKm)`.
+- **Recommended constraint:** `potenza > 1`.
 
-## Test CellaRaggio
+## Radius-Based Cell Tests (CellaRaggio)
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| CR1 | Forza al centro | Verifica forza nel centro | Punto = centro cella | Forza = 100 |
-| CR2 | Fuori dal raggio | Verifica fuori area | Distanza > raggio | Forza = 0 |
-| CR3 | Metà distanza | Decrescita lineare | Distanza ≈ raggio/2 | Forza ≈ 50 |
-| CR4 | Raggio non valido | Validazione input | raggio ≤ 0 | Eccezione |
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| CR1 | Strength at Center | Verify signal strength at the cell center | Point = cell center | Strength = 100 |
+| CR2 | Outside Coverage Radius | Verify behavior outside the coverage area | Distance > radius | Strength = 0 |
+| CR3 | Half Radius Distance | Verify linear signal strength decay | Distance ≈ radius/2 | Strength ≈ 50 |
+| CR4 | Invalid Radius | Validate radius input | Radius ≤ 0 | Exception |
 
-## Test CellaPotenza
+## Power-Based Cell Tests (CellaPotenza)
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| CP1 | Forza al centro | Verifica forza centro | Distanza = 0 | Forza = 100 |
-| CP2 | Distanza crescente | Forza decrescente | Due distanze diverse | ForzaVicino > ForzaLontano |
-| CP3 | Potenza non valida | Validazione input | potenza ≤ 1 | Eccezione |
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| CP1 | Strength at Center | Verify signal strength at the center | Distance = 0 | Strength = 100 |
+| CP2 | Increasing Distance | Verify decreasing signal strength | Two different distances | NearStrength > FarStrength |
+| CP3 | Invalid Power | Validate power parameter | Power ≤ 1 | Exception |
 
-## Test Filtro Celle
+## Cell Filtering Tests
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| FC1 | Celle sopra soglia | Filtro corretto | Lista + soglia | Solo celle valide |
-| FC2 | Ordinamento filtro | Ordine corretto | Più celle | Ordine decrescente |
-| FC3 | Nessun risultato | Lista vuota | Soglia alta | Lista vuota |
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| FC1 | Cells Above Threshold | Verify correct filtering | Cell list + threshold | Only qualifying cells |
+| FC2 | Filter Sorting | Verify correct ordering | Multiple cells | Descending order |
+| FC3 | No Matching Results | Verify empty result handling | High threshold | Empty list |
 
-## Test Frequenza Eventi
+## Event Frequency Tests
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| FE1 | Frequenza base | Conteggio eventi | cella1 x2, cella2 x1 | cella1 prima |
-| FE2 | Frequenza multipla | Conteggio completo | cella3 x3, cella1 x2, cella2 x1 | cella3, cella1, cella2 |
-| FE3 | Frequenze uguali | Parità frequenze | cella1 x1, cella2 x1 | Ordine non garantito |
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| FE1 | Basic Frequency | Count events per cell | cella1 ×2, cella2 ×1 | cella1 first |
+| FE2 | Multiple Frequencies | Verify complete frequency counting | cella3 ×3, cella1 ×2, cella2 ×1 | cella3, cella1, cella2 |
+| FE3 | Equal Frequencies | Verify behavior when frequencies are equal | cella1 ×1, cella2 ×1 | Order not guaranteed |
 
-## Test CONNECTED / DISCONNECTED
+## CONNECTED / DISCONNECTED Event Tests
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| CD1 | CONNECTED singolo | Evento CONNECTED | cella1 CONNECTED | cella1 presente |
-| CD2 | DISCONNECTED singolo | Evento DISCONNECTED | cella1 DISCONNECTED | cella1 presente |
-| CD3 | Misto eventi | Conteggio misto | CONNECTED + DISCONNECTED | Conteggio corretto |
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| CD1 | Single CONNECTED Event | Process a CONNECTED event | cella1 CONNECTED | cella1 included |
+| CD2 | Single DISCONNECTED Event | Process a DISCONNECTED event | cella1 DISCONNECTED | cella1 included |
+| CD3 | Mixed Events | Count different event types | CONNECTED + DISCONNECTED | Correct event count |
 
-## Test Casi Limite
+## Edge Case Tests
 
-| ID | Nome Test | Descrizione | Input | Output Atteso |
-|----|-----------|-------------|------|----------------|
-| CL1 | Lista vuota | Gestione lista vuota | [] | [] |
-| CL2 | Singola cella | Caso minimo | 1 evento | 1 cella |
-| CL3 | Test GOLD | Scenario completo | cella3 x5, cella1 x4, cella2 x2, cella4 x1 | cella3, cella1, cella2, cella4 |
-
-```
+| ID | Test Name | Description | Input | Expected Output |
+|---|---|---|---|---|
+| CL1 | Empty List | Handle an empty event list | `[]` | `[]` |
+| CL2 | Single Cell | Verify minimum input scenario | 1 event | 1 cell |
+| CL3 | GOLD Test | Verify a complete test scenario | cella3 ×5, cella1 ×4, cella2 ×2, cella4 ×1 | cella3, cella1, cella2, cella4 |
