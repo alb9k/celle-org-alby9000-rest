@@ -131,7 +131,7 @@ Body esempio cella a potenza:
 | FC2 | Ordinamento filtro | Ordine corretto | Più celle | Ordine decrescente |
 | FC3 | Nessun risultato | Lista vuota | Soglia alta | Lista vuota |
 
-## Test Frequenza Eventi
+## Test Frequenza Eventi 
 
 | ID | Nome Test | Descrizione | Input | Output Atteso |
 |----|-----------|-------------|------|----------------|
