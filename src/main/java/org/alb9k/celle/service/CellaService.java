@@ -27,8 +27,7 @@ public class CellaService {
         for (EventoCella evento : eventi) {
             if (evento != null && evento.getCella() != null && evento.getCella().getNome() != null) {
                 String nome = evento.getCella().getNome();
-                Integer frequenzaAttuale = frequenze.get(nome);
-                frequenze.put(nome, frequenzaAttuale == null ? 1 : frequenzaAttuale + 1);
+                frequenze.compute(nome, (k, frequenzaAttuale) -> frequenzaAttuale == null ? 1 : frequenzaAttuale + 1);
                 cellePerNome.put(nome, evento.getCella());
             }
         }
